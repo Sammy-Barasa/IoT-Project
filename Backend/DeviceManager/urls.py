@@ -1,6 +1,7 @@
 from django.urls.conf import path
-from .views import index_view
+from .views import DeviceView, DeviceUpdateView
 
 urlpatterns = [
-    path("",index_view),
+    path("",DeviceView.as_view()),
+    path("update/", DeviceUpdateView.as_view()),
 ]
