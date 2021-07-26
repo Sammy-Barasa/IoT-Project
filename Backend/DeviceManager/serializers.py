@@ -19,7 +19,7 @@ class DeviceUpdateSerializer(serializers.ModelSerializer):
         model = Device
         fields = ['id', 'deviceIDRef', 'ledState',
                   'roomNumber', 'lastToggle', 'lastUser']
-        read_only_fields = ['id', 'deviceIDRef']
+        read_only_fields = ['id', 'deviceIDRef','lastToggle']
 
 
         # validate
