@@ -1,14 +1,18 @@
-void setup() {
+
+// sensor A
+int sensorA = 2;
+    // sensor 2
+int sensorB= 4;
+    // LED
+
+    // LED State
+bool ledState;
+
+    void setup()
+{
   // put your setup code here, to run once:
-
-  // sensor 1
-
-  // sensor 2
-
-  // LED
-
-  // LED State
-
+  pinMode(sensorA, INPUT);
+  pinMode(sensorB, INPUT);
 }
 
 void loop() {
