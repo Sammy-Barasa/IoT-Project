@@ -54,7 +54,7 @@ class DeviceView(generics.GenericAPIView):
 class DeviceUpdateView(generics.RetrieveUpdateDestroyAPIView):
     
     serializer_class = DeviceUpdateSerializer
-    lookup_field = "device_id"
+    lookup_field = "id"
 
     # overriding get queryset
 
