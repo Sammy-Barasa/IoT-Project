@@ -41,14 +41,7 @@ class DeviceView(generics.GenericAPIView):
             print(serializer.errors)
             return Response(data={"message": serializer.errors}, status=status.HTTP_400_BAD_REQUEST)
 
-    # update device
-    def put(self, request, device_id, devREF):
-        data = request.data
-        serializer = self.serializer_class(self.get_queryset(), data=data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        print(serializer.data)
-        return Response(data={"message": "device has been updated"}, status=status.HTTP_200_OK)
+    
 
 
 class DeviceUpdateView(generics.RetrieveUpdateDestroyAPIView):
