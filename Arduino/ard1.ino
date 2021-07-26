@@ -166,7 +166,7 @@ timeB = millis();
 
 httpSend(url,postData){
   client.beginRequest();
-  client.post(url);
+  client.put(url);
   client.sendHeader("Content-Type", "application/json");
   client.sendHeader("Content-Length", postData.length());
   client.sendHeader("X-Custom-Header", "custom-header-value");
