@@ -1,1 +1,2 @@
-web: gunicorn IoTBackend.wsgi
+web: gunicorn Backend/IoTBackend/wsgi.py
+
