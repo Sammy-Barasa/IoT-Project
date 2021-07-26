@@ -1,2 +1,1 @@
-web: gunicorn Backend.IoTBackend.wsgi:application
-
+web: sh -c 'cd Backend && gunicorn IoTBackend.wsgi:application'
