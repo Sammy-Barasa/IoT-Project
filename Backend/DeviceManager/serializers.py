@@ -25,6 +25,7 @@ class DeviceUpdateSerializer(serializers.ModelSerializer):
         fields = ['id', 'deviceIDRef', 'ledState',
                   'roomNumber', 'lastToggle', 'lastUser']
         read_only_fields = ['id','deviceIDRef']
+        depth= 1
 
 
         # validate

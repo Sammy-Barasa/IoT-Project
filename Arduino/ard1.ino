@@ -104,8 +104,7 @@ timeB = millis();
           // reading ledState
 
         // sending to API: device_id,devIDREF, ledState, roomNumber,lastUSER:OCCUPANT, OCCUPIED:false
-        dataTS["device_id"] = device_id;
-        dataTS["deviceIDRef"] = deviceIDRef;
+        
         dataTS["ledState"] = ledState;
         dataTS["roomNumber"] = roomNumber;
         dataTS["lastUser"] = OCCUPANT;
@@ -130,8 +129,7 @@ timeB = millis();
 
           // sending to API: device_id,devIDREF, ledState, roomNumber,lastUSER:OCCUPANT, OCCUPIED:true
 
-          dataTS["device_id"] = device_id;
-          dataTS["deviceIDRef"] = deviceIDRef;
+          
           dataTS["ledState"] = ledState;
           dataTS["roomNumber"] = roomNumber;
           dataTS["lastUser"] = OCCUPANT;
