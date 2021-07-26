@@ -10,7 +10,7 @@ class Room(models.Model):
     
 
     def __str__(self):
-        return self.number
+        return f"Room no.{self.number}"
 
 class Device(models.Model):
     CHOICES=[
