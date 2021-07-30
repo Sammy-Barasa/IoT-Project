@@ -29,6 +29,7 @@ class DeviceView(generics.GenericAPIView):
         return Response(data=serializer.data, status=status.HTTP_200_OK)
     def post(self, request,device_id,devREF):
         data = request.data
+        dev =self.get_queryset()
         serializer = self.serializer_class(
             data=data, context={'request': request})
         serializer.is_valid(raise_exception=True)
