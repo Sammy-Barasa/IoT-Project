@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
+    '127.0.0.1','localhost',
     os.environ.get("ALLOWED_HOSTS"),
     ]
 
@@ -148,11 +148,7 @@ REST_FRAMEWORK = {
 # Swagger ui
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'Bearer': {
-            'type': 'apiKey',
-            'name': 'Authorization',
-            'in': 'header'
-        },
+        
     },
 }
 

@@ -46,7 +46,10 @@ int sB= 4;
     // LED
 int LED = 12;
 
+int buttonPin = 8;
 
+boolean currentButton = LOW; // the current reading from the input pin
+bool lastButton = LOW; // the previous reading from the input pin
 // LED State
 bool ledState;
 unsigned long timeA;
@@ -249,13 +252,33 @@ timeB = millis();
 
           dataTS.clear();
       }
-}
+      currentButton = debounce(lastButton);           //read deboucned state
+      if (lastButton == LOW && currentButton == HIGH) //if it was pressed...
+      {
+        ledState = !ledState; //toggle the LED value
+
+        lastButton = currentButton; //reset button value
+
+        digitalWrite(LED, ledState); //change the LED state
+
+        dataTS["ledState"] = ledState;
+        dataTS["roomNumber"] = roomNumber;
+        dataTS["lastUser"] = OCCUPANT;
+        dataTS["occupied"] = true;
+        String url = "https://iot-project-ic.herokuapp.com/api/update/" + String(device_id) + "/" + deviceIDRef;
+        Serial.println(url);
+        httpSend(url, dataTS);
+        dataTS.clear();
+      }
       
- // setting up wi-fi module
+}
 
- // streaming to our API
 
- // LED state
+                          // setting up wi-fi module
+
+// streaming to our API
+
+// LED state
         
 
 
@@ -264,7 +287,17 @@ timeB = millis();
 //  ******************************** FUNCTIONS **********************************************
 
 
-// debouncing function
+// *******************************debouncing function*****************************************
+void debounce(bool last){
+  boolean current = digitalRead(buttonPin); //Read the button state
+  if (last != current)                   //if it's different…
+  {
+    delay(5);                      //wait 5ms
+    current = digitalRead(BUTTON); //read it again
+
+    return current; //return the current value
+    
+  }
 
 //******************************** httpSend function *****************************************
 

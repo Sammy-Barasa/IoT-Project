@@ -36,7 +36,7 @@ class DeviceView(generics.GenericAPIView):
         try:
             serializer.save()
             print(serializer.data)
-            return Response(data={"message": "device has been added"}, status=status.HTTP_201_CREATED)
+            return Response(data={"message": "device has been added"}, status=status.HTTP_200_OK)
         except ValidationError as error:
             print(error)
             print(serializer.errors)

@@ -28,7 +28,6 @@ class DeviceUpdateSerializer(serializers.ModelSerializer):
         read_only_fields = ['id', 'deviceIDRef']
         depth= 1
 
-
         # validate
 
         def validate(self, attr):
