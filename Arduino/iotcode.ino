@@ -49,7 +49,7 @@ int LED = 12;
 int buttonPin = 8;
 
 boolean currentButton = LOW; // the current reading from the input pin
-bool lastButton = LOW; // the previous reading from the input pin
+boolean lastButton = LOW; // the previous reading from the input pin
 // LED State
 bool ledState;
 unsigned long timeA;
@@ -270,11 +270,10 @@ timeB = millis();
         httpSend(url, dataTS);
         dataTS.clear();
       }
-      
 }
 
 
-                          // setting up wi-fi module
+// setting up wi-fi module
 
 // streaming to our API
 
@@ -288,16 +287,16 @@ timeB = millis();
 
 
 // *******************************debouncing function*****************************************
-void debounce(bool last){
+boolean debounce(boolean last){
   boolean current = digitalRead(buttonPin); //Read the button state
   if (last != current)                   //if it's different…
   {
     delay(5);                      //wait 5ms
-    current = digitalRead(BUTTON); //read it again
+    current = digitalRead(buttonPin); //read it again
 
     return current; //return the current value
-    
   }
+}
 
 //******************************** httpSend function *****************************************
 
@@ -321,6 +320,3 @@ void httpSend(String url,DynamicJsonDocument postData){
 //  Serial.print("Response: ");
 //  Serial.println(response);
 };
-
-
-
