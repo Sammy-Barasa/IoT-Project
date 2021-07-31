@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'DeviceManager',
+    'DeviceManager.apps.DevicemanagerConfig',
     'rest_framework',
     'drf_yasg',
     'corsheaders'
@@ -131,7 +131,7 @@ REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        'rest_framework.permissions.AllowAny'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
@@ -147,9 +147,7 @@ REST_FRAMEWORK = {
 
 # Swagger ui
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        
-    },
+    'DEFAULT_INFO': 'import.path.to.urls.api_info',
 }
 
 # Internationalization
